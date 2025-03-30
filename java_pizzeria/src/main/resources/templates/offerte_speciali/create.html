@@ -15,8 +15,8 @@
                 <div class="row justify-content-center">
 
                     <!--Inserisco il form-->
-                    <form th:action="@{/offerte/create}" method="post" class="border border-black rounded p-4"
-                        th:object="${offertaSpeciale}">
+                    <form th:action="${edit} ? {/offerte/edit/{id}(id = offertaSpeciale.id)} : @{/offerte/create}"
+                        method="post" class="border border-black rounded p-4" th:object="${offertaSpeciale}">
 
                         <!--input con le informazioni della pizza-->
                         <input type="hidden" th:field="*{pizza}">

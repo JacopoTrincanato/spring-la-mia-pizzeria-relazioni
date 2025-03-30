@@ -26,12 +26,12 @@
         </div>
 
         <section class="row mb-3 p-4">
-            <div class="col-8" th:unless="${pizza.getOffertaSpeciale().size() > 0}">
+            <div class="col-8 m-auto" th:unless="${pizza.getOfferteSpeciali().size() > 0}">
                 <div class="alert alert-warning">
                     <h4>Non ci sono offerte per questa pizza</h4>
                 </div>
             </div>
-            <div class="col-12" th:if="${pizza.getOffertaSpeciale().size() > 0}">
+            <div class="col-12" th:if="${pizza.getOfferteSpeciali().size() > 0}">
                 <h2 class="fw-bold">Offerte Speciali</h2>
                 <table class="table">
                     <thead>

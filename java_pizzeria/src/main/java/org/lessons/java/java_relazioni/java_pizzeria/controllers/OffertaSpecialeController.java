@@ -30,6 +30,7 @@ public class OffertaSpecialeController {
 
         repository.save(offertaSpecialeForm);
 
-        return "redirect:/pizze";
+        return "redirect:/pizze" + offertaSpecialeForm.getPizza().getId();
     }
+
 }
