@@ -1,6 +1,8 @@
 package org.lessons.java.java_relazioni.java_pizzeria.controllers;
 
 import org.lessons.java.java_relazioni.java_pizzeria.models.OffertaSpeciale;
+import org.lessons.java.java_relazioni.java_pizzeria.repositories.OffertaSpecialeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +16,9 @@ import jakarta.validation.Valid;
 @RequestMapping("/offerte")
 public class OffertaSpecialeController {
 
+    @Autowired
+    private OffertaSpecialeRepository repository;
+
     @PostMapping("/create")
     public String store(@Valid @ModelAttribute("offertaSpeciale") OffertaSpeciale offertaSpecialeForm,
             BindingResult bindingResult, Model model) {
@@ -22,6 +27,8 @@ public class OffertaSpecialeController {
         if (bindingResult.hasErrors()) {
             return "offerte_speciali/create";
         }
+
+        repository.save(offertaSpecialeForm);
 
         return "redirect:/pizze";
     }
