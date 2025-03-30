@@ -44,14 +44,14 @@
                     </thead>
 
                     <tbody>
-                        <tr th:each="offertaSpeciale : ${offerteSpeciali}" th:object="${offertaSpeciale}">
+                        <tr th:each="offertaSpeciale : *{offerteSpeciali}" th:object="${offertaSpeciale}">
 
                             <td>[[*{titolo}]]</td>
                             <td>[[*{dataInizio}]]</td>
                             <td>[[*{dataFine}]]</td>
 
                             <td><a class="btn btn-dark"
-                                    th:href="@{/offerte/edit/{id}(id = offertaSpeciale.id)}"></a>Aggiorna
+                                    th:href="@{/offerte/edit/{id}(id = offertaSpeciale.id)}">Aggiorna</a>
                             </td>
 
                         </tr>

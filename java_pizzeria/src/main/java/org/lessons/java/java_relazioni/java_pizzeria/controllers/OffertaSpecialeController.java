@@ -32,7 +32,7 @@ public class OffertaSpecialeController {
 
         repository.save(offertaSpecialeForm);
 
-        return "redirect:/pizze" + offertaSpecialeForm.getPizza().getId();
+        return "redirect:/pizze/" + offertaSpecialeForm.getPizza().getId();
     }
 
     // metodo che restituisce un edit da compilare
@@ -54,7 +54,7 @@ public class OffertaSpecialeController {
 
         repository.save(offertaSpecialeForm);
 
-        return "redirect:/pizze" + offertaSpecialeForm.getPizza().getId();
+        return "redirect:/pizze/" + offertaSpecialeForm.getPizza().getId();
     }
 
 }
