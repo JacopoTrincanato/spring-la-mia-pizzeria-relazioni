@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="~{fragments/resources :: headTags}"></div>
+    <title>Show</title>
+</head>
+
+<body th:object="${pizza}">
+
+    <header>
+        <h1 class="text-center p-4">Dettagli della pizza con id: [[*{id}]]</h1>
+    </header>
+
+    <main>
+        <div class="container m-auto mt-5 p-4 d-flex border border-black rounded gap-3">
+
+            <img th:src=*{urlFoto} class="w-25">
+            <div class="informations">
+
+                <h2 class="mb-3">Nome: [[*{nome}]]</h2>
+                <h2 class="mb-3">Ingredienti: [[*{descrizione}]]</h2>
+                <h2 class="mb-3">Prezzo: [[*{prezzo}]] euro</h2>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
