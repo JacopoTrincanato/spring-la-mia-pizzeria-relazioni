@@ -1,6 +1,8 @@
 package org.lessons.java.java_relazioni.java_pizzeria.controllers;
 
 import java.util.List;
+
+import org.lessons.java.java_relazioni.java_pizzeria.models.OffertaSpeciale;
 import org.lessons.java.java_relazioni.java_pizzeria.models.Pizza;
 import org.lessons.java.java_relazioni.java_pizzeria.repositories.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,5 +99,17 @@ public class PizzaController {
         repository.deleteById(id);
 
         return "redirect:/pizze";
+    }
+
+    // metodo per l'offerta
+    @GetMapping("/{id}/offerte")
+    public String offertaSpeciale(@PathVariable Integer id, Model model) {
+        // creo una nuova offerta
+        OffertaSpeciale offertaSpeciale = new OffertaSpeciale();
+        offertaSpeciale.setPizza(repository.findById(id).get());
+
+        model.addAttribute("offertaSpeciale", offertaSpeciale);
+
+        return "offerte_speciali/create";
     }
 }
