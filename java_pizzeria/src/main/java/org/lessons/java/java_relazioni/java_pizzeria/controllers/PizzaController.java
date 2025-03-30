@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.lessons.java.java_relazioni.java_pizzeria.models.OffertaSpeciale;
 import org.lessons.java.java_relazioni.java_pizzeria.models.Pizza;
+import org.lessons.java.java_relazioni.java_pizzeria.repositories.OffertaSpecialeRepository;
 import org.lessons.java.java_relazioni.java_pizzeria.repositories.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,10 @@ public class PizzaController {
 
     @Autowired
     private PizzaRepository repository;
+
+    // chiamo la repository delle offerte
+    @Autowired
+    private OffertaSpecialeRepository offertaRepository;
 
     // creo la rotta index
     @GetMapping
@@ -95,8 +100,15 @@ public class PizzaController {
     @PostMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
 
+        // prendo tutte le offerte della pizza
+        Pizza pizza = repository.findById(id).get();
+
+        for (OffertaSpeciale offerteDaEliminare : pizza.getOfferteSpeciali()) {
+            offertaRepository.delete(offerteDaEliminare);
+        }
+
         // cancello la pizza
-        repository.deleteById(id);
+        repository.delete(pizza);
 
         return "redirect:/pizze";
     }

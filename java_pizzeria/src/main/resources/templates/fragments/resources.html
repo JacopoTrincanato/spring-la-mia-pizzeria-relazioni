@@ -70,13 +70,14 @@
             </div>
         </div>
 
-        <div class="mb-3 d-flex justify-content-around">
-            <button type="submit" class="btn btn-success">Aggiorna la pizza</button>
-
-            <button type="reset" class="btn btn-warning">Resetta il form</button>
-        </div>
-
     </form>
+
+    <!--Creo il fragment per i bottoni del form-->
+    <div th:fragment="bottoniForm(azioneSubmit)" class="mb-3 d-flex justify-content-around">
+        <button type="submit" class="btn btn-success">[[*{azioneSubmit}]]</button>
+
+        <button type="reset" class="btn btn-warning">Resetta il form</button>
+    </div>
 
     <!--Creo il fragment per gli script-->
     <div th:fragment="scripts">
