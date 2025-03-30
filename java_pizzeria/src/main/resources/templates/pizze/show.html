@@ -50,8 +50,7 @@
                             <td>[[*{dataInizio}]]</td>
                             <td>[[*{dataFine}]]</td>
 
-                            <td><a class="btn btn-dark"
-                                    th:href="@{/offerte/edit/{id}(id = offertaSpeciale.id)}">Aggiorna</a>
+                            <td><a class="btn btn-dark" th:href="@{'/offerte/edit/' + *{id}}">Aggiorna</a>
                             </td>
 
                         </tr>

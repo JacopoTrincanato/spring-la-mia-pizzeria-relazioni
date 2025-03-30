@@ -36,15 +36,15 @@ public class OffertaSpecialeController {
     }
 
     // metodo che restituisce un edit da compilare
-    @GetMapping("/{id}/edit")
+    @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("offertaSpeciale", repository.findById(id).get());
         model.addAttribute("edit", true);
-        return "offerte_speciali/create";
+        return "/offerte_speciali/create";
     }
 
     // metodo che effettua l'update con validazione
-    @PostMapping("/{id}/edit")
+    @PostMapping("/edit/{id}")
     public String update(@Valid @ModelAttribute("offertaSpeciale") OffertaSpeciale offertaSpecialeForm,
             BindingResult bindingResult, Model model) {
 
