@@ -1,6 +1,7 @@
 package org.lessons.java.java_relazioni.java_pizzeria.controllers;
 
 import org.lessons.java.java_relazioni.java_pizzeria.models.Ingredienti;
+import org.lessons.java.java_relazioni.java_pizzeria.models.Pizza;
 import org.lessons.java.java_relazioni.java_pizzeria.repositories.IngredientiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -86,6 +87,21 @@ public class IngredientiController {
         }
 
         ingredientiRepository.save(ingredienteForm);
+
+        return "redirect:/ingredienti";
+    }
+
+    // rotta delete
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id) {
+        // cancella l'ingrediente
+        Ingredienti ingredientiDaCancellare = ingredientiRepository.findById(id).get();
+
+        for (Pizza pizzaLinkata : ingredientiDaCancellare.getPizze()) {
+            pizzaLinkata.getIngredienti().remove(ingredientiDaCancellare);
+        }
+
+        ingredientiRepository.delete(ingredientiDaCancellare);
 
         return "redirect:/ingredienti";
     }

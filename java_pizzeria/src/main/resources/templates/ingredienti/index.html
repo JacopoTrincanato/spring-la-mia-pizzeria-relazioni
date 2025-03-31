@@ -30,14 +30,6 @@
                             th:replace="~{fragments/resources :: cardButtons('/ingredienti/edit/' + *{id}, 'Modifica')}">
                         </div>
 
-                        <div
-                            th:replace="~{fragments/resources :: cardButtons('/ingredienti/' + *{id} + '/offerte', 'Offerte')}">
-                        </div>
-
-                        <div
-                            th:replace="~{fragments/resources :: cardButtons('/ingredienti/' + *{id} + '/ingredienti', 'Ingredienti')}">
-                        </div>
-
                         <!-- Bottone che triggera la modale -->
                         <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
                             th:data-bs-target="'#modal-' + *{id}">
@@ -52,7 +44,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h1 class="modal-title fs-5" th:id="'modalLabel-' + *{id}">
-                                            Cancellazione della pizza [[*{nome}]]
+                                            Cancellazione dell'ingrediente [[*{nome}]]
                                         </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
