@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -38,7 +39,7 @@ public class OffertaSpeciale {
     private LocalDate dataInizio;
 
     @NotNull(message = "Il campo data di fine non può essere nullo")
-    @PastOrPresent(message = "Il campo data di fine non può essere settato nel futuro")
+    @FutureOrPresent(message = "Il campo data di fine non può essere settato nel passato")
     private LocalDate dataFine;
 
     // metodi

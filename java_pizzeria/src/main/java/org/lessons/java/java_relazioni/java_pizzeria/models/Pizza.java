@@ -4,12 +4,14 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
@@ -48,6 +50,11 @@ public class Pizza {
     // relazione oneToMany tra la pizza e le possibili offerte
     @OneToMany(mappedBy = "pizza")
     private List<OffertaSpeciale> offerteSpeciali;
+
+    // relazione tra la pizza e gli ingredienti
+    @ManyToMany
+    @JoinTable(name = "ingredienti_pizze", joinColumns = @JoinColumn(name = "ingrediente_id"), inverseJoinColumns = @JoinColumn(name = "pizza_id"))
+    private List<Ingredienti> ingredienti;
 
     // metodi
     public Integer getId() {
@@ -96,6 +103,14 @@ public class Pizza {
 
     public void setOfferteSpeciali(List<OffertaSpeciale> offerteSpeciali) {
         this.offerteSpeciali = offerteSpeciali;
+    }
+
+    public List<Ingredienti> getIngredienti() {
+        return this.ingredienti;
+    }
+
+    public void setIngredienti(List<Ingredienti> ingredienti) {
+        this.ingredienti = ingredienti;
     }
 
     @Override
