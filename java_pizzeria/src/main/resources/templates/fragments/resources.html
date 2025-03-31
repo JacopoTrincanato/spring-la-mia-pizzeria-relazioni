@@ -70,6 +70,13 @@
             </div>
         </div>
 
+        <div class="mb-3">
+            <div class="ingredienti form-check" th:each="ingrediente : ${ingredienti}">
+                <input type="checkbox" th:id="|ingrediente-*{id}|" th:field="*{ingredienti}" th:value="*{id}">
+                <label th:for="|ingrediente-*{id}|" class="form-check-label" th:text="*{nome}"></label>
+            </div>
+        </div>
+
         <div class="mb-3 d-flex justify-content-around">
             <button type="submit" class="btn btn-success">[[${azioneSubmit}]]</button>
 
