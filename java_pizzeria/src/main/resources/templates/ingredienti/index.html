@@ -80,7 +80,7 @@
         </div>
     </main>
 
-    <p th:unless="${ingredienti.size() > 0}" th:text="Non ci sono ingredienti disponibili"></p>
+    <p th:if="${ingredienti.size() < 0}" th:text="Non ci sono ingredienti disponibili"></p>
     <div th:replace="~{fragments/resources :: scripts}"></div>
 </body>
 
