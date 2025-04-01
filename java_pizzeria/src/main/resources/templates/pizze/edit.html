@@ -19,7 +19,7 @@
                     <div class="row justify-content-center">
                         <!--Inserisco il fragment per il form-->
                         <div
-                            th:replace="~{fragments/resources :: form('/pizze/edit/{id}(id = *{id})', 'post', 'Aggiorna la pizza')}">
+                            th:replace="~{fragments/resources :: form('/pizze/edit/' + *{id}, 'post', 'Aggiorna la pizza')}">
 
                         </div>
                     </div>

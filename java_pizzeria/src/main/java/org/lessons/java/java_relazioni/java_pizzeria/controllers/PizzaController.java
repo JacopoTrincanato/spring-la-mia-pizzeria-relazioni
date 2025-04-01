@@ -108,7 +108,7 @@ public class PizzaController {
         // aggiorno il dato
         repository.save(pizzaForm);
 
-        return "redirect:/pizze";
+        return "redirect:/pizze/" + pizzaForm.getId();
     }
 
     // creo la rotta delete

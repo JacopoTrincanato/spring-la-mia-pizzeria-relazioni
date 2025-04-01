@@ -53,7 +53,7 @@ public class Pizza {
 
     // relazione tra la pizza e gli ingredienti
     @ManyToMany
-    @JoinTable(name = "ingredienti_pizze", joinColumns = @JoinColumn(name = "ingrediente_id"), inverseJoinColumns = @JoinColumn(name = "pizza_id"))
+    @JoinTable(name = "ingredienti_pizze", joinColumns = @JoinColumn(name = "pizza_id"), inverseJoinColumns = @JoinColumn(name = "ingrediente_id"))
     private List<Ingredienti> ingredienti;
 
     // metodi
