@@ -26,6 +26,9 @@
 
                         <!--Inserisco i fragment per i bottoni della card-->
 
+                        <div th:replace="~{fragments/resources :: cardButtons('/ingredienti/' + *{id}, 'Visualizza')}">
+                        </div>
+
                         <div
                             th:replace="~{fragments/resources :: cardButtons('/ingredienti/edit/' + *{id}, 'Modifica')}">
                         </div>
