@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.lessons.java.java_relazioni.java_pizzeria.models.OffertaSpeciale;
 import org.lessons.java.java_relazioni.java_pizzeria.models.Pizza;
+import org.lessons.java.java_relazioni.java_pizzeria.repositories.IngredientiRepository;
 import org.lessons.java.java_relazioni.java_pizzeria.repositories.OffertaSpecialeRepository;
 import org.lessons.java.java_relazioni.java_pizzeria.repositories.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,10 @@ public class PizzaController {
     // chiamo la repository delle offerte
     @Autowired
     private OffertaSpecialeRepository offertaRepository;
+
+    // chiamo la repository degli inredienti
+    @Autowired
+    private IngredientiRepository ingredientiRepository;
 
     // creo la rotta index
     @GetMapping
@@ -57,14 +62,20 @@ public class PizzaController {
         // creo una nuova pizza
         model.addAttribute("pizza", new Pizza());
 
+        // prendo tutti gli ingredienti
+        model.addAttribute("ingredienti", ingredientiRepository.findAll());
         return "pizze/create";
     }
 
     // creo un metodo per aggiungere una pizza
     @PostMapping("/create")
     public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
+
         // verifico che il processo di validazione sia avvenuto correttamente
         if (bindingResult.hasErrors()) {
+
+            // prendo tutti gli ingredienti
+            model.addAttribute("ingredienti", ingredientiRepository.findAll());
             return "pizze/create";
         }
 
@@ -77,6 +88,8 @@ public class PizzaController {
     // creo la rotta edit
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
+        // prendo tutti gli ingredienti
+        model.addAttribute("ingredienti", ingredientiRepository.findAll());
         model.addAttribute("pizza", repository.findById(id).get());
         return "pizze/edit";
     }
@@ -87,6 +100,8 @@ public class PizzaController {
 
         // verifico che il processo di validazione sia avvenuto correttamente
         if (bindingResult.hasErrors()) {
+            // prendo tutti gli ingredienti
+            model.addAttribute("ingredienti", ingredientiRepository.findAll());
             return "pizze/edit";
         }
 

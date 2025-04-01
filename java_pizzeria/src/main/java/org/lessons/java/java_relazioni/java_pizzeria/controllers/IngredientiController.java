@@ -42,9 +42,6 @@ public class IngredientiController {
         // creo il nuovo ingrediente
         model.addAttribute("ingrediente", new Ingredienti());
 
-        // prendo tutti gli ingredienti
-        model.addAttribute("ingredienti", ingredientiRepository.findAll());
-
         return "ingredienti/create-or-edit";
     }
 
@@ -65,9 +62,6 @@ public class IngredientiController {
     // rotta edit
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
-
-        // prendo tutti gli ingredienti
-        model.addAttribute("ingredienti", ingredientiRepository.findAll());
 
         // trovo l'ingrediente per id
         model.addAttribute("ingrediente", ingredientiRepository.findById(id).get());
