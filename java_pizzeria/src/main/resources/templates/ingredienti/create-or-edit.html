@@ -41,7 +41,7 @@
 
                                 <div class="invalid-feedback" th:if="${#fields.hasErrors('descrizione')}">
                                     <ul>
-                                        <li th:each="${#fields.errors('descrizione')}" th:text="${error}"></li>
+                                        <li th:each="error : ${#fields.errors('descrizione')}" th:text="${error}"></li>
                                     </ul>
                                 </div>
                             </textarea>

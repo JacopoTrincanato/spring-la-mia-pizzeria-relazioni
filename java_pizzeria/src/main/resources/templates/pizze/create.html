@@ -8,19 +8,24 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row" th:object="${pizza}">
-            <div class="col-12">
-                <h1 class="text-center p-4">Aggiungi una nuova pizza al menu</h1>
-                <div class="row justify-content-center">
-                    <!--Inserisco il fragment per il form-->
-                    <div th:replace="~{fragments/resources :: form('/pizze/create', 'post', 'Crea una pizza')}">
+    <header>
+        <h1 class="text-center p-4">Aggiungi una nuova pizza al menu</h1>
+    </header>
 
+    <main>
+        <div class="container">
+            <div class="row" th:object="${pizza}">
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <!--Inserisco il fragment per il form-->
+                        <div th:replace="~{fragments/resources :: form('/pizze/create', 'post', 'Crea una pizza')}">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>

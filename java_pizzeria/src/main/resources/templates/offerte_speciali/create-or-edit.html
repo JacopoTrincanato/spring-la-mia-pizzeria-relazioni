@@ -44,7 +44,7 @@
 
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('dataInizio')}">
                                 <ul>
-                                    <li th:each="${#fields.errors('dataInizio')}" th:text="${error}"></li>
+                                    <li th:each="error : ${#fields.errors('dataInizio')}" th:text="${error}"></li>
                                 </ul>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
 
                             <div class="invalid-feedback" th:if="${#fields.hasErrors('dataFine')}">
                                 <ul>
-                                    <li th:each="${#fields.errors('dataFine')}" th:text="${error}"></li>
+                                    <li th:each="error : ${#fields.errors('dataFine')}" th:text="${error}"></li>
                                 </ul>
                             </div>
                         </div>

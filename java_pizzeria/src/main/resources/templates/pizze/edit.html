@@ -7,19 +7,19 @@
     <title>Edit</title>
 </head>
 
-<body>
+<body th:object="${pizza}">
     <header>
-        <h1 class="text-center p-4">Aggiorna una pizza del menu</h1>
+        <h1 class="text-center p-4">Aggiorna la pizza [[*{nome}]]</h1>
     </header>
 
     <main>
         <div class="container">
-            <div class="row" th:object="${pizza}">
+            <div class="row">
                 <div class="col-12">
                     <div class="row justify-content-center">
                         <!--Inserisco il fragment per il form-->
                         <div
-                            th:replace="~{fragments/resources :: form('/pizze/edit/' + *{id}, 'post', 'Aggiorna la pizza')}">
+                            th:replace="~{fragments/resources :: form('/pizze/edit/' + ${pizza.id}, 'post', 'Aggiorna la pizza')}">
 
                         </div>
                     </div>
