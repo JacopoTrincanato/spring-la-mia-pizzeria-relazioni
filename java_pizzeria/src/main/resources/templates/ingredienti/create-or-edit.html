@@ -11,13 +11,13 @@
     <div class="container">
         <div class="row" th:object="${pizza}">
             <div class="col-12">
-                <h1 th:if="${edit}" class="text-center p-4">Aggiorna un nuovo ingrediente alla pizza</h1>
+                <h1 th:if="${edit}" class="text-center p-4">Aggiorna l'ingrediente alla pizza</h1>
 
-                <h1 th:unless="${edit}" class="text-center p-4">Aggiungi l'ingrediente della pizza</h1>
+                <h1 th:unless="${edit}" class="text-center p-4">Aggiungi un nuovo ingrediente alla pizza</h1>
                 <div class="row justify-content-center">
 
                     <!--Inserisco il form-->
-                    <form th:action="${edit} ? @{/ingredienti/edit/{id}(id = ingrediente.id)} : @{/ingredienti/create}"
+                    <form th:action="${edit} ? @{'/ingredienti/edit/' + ${ingrediente.id}} : @{/ingredienti/create}"
                         method="post" class="border border-black rounded p-4" th:object="${ingrediente}">
 
                         <!--Creo i vari input-->

@@ -137,6 +137,6 @@ public class PizzaController {
 
         model.addAttribute("offertaSpeciale", offertaSpeciale);
 
-        return "offerte_speciali/create";
+        return "offerte_speciali/create-or-edit";
     }
 }

@@ -36,10 +36,10 @@
                     </tr>
                 </thead>
 
-                <tbody th:each="ingrediente : *{ingredienti}">
+                <tbody>
                     <tr>
 
-                        <td>[[${ingrediente.nome}]]</td>
+                        <td th:each="ingrediente : *{ingredienti}">[[*{nome}]]</td>
 
                     </tr>
                 </tbody>

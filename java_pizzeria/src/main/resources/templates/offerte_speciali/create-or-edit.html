@@ -11,11 +11,13 @@
     <div class="container">
         <div class="row" th:object="${pizza}">
             <div class="col-12">
-                <h1 class="text-center p-4">Aggiungi una nuova offerta alla pizza</h1>
+                <h1 th:if="${edit}" class="text-center p-4">Aggiorna l'offerta della pizza</h1>
+
+                <h1 th:unless="${edit}" class="text-center p-4">Aggiungi un'offerta alla pizza</h1>
                 <div class="row justify-content-center">
 
                     <!--Inserisco il form-->
-                    <form th:action="${edit} ? @{/offerte/edit/{id}(id = offertaSpeciale.id)} : @{/offerte/create}"
+                    <form th:action="${edit} ? @{'/offerte/edit/' + ${offertaSpeciale.id}} : @{/offerte/create}"
                         method="post" class="border border-black rounded p-4" th:object="${offertaSpeciale}">
 
                         <!--input con le informazioni della pizza-->
@@ -60,7 +62,11 @@
                         </div>
 
                         <div class="mb-3 d-flex justify-content-around">
-                            <button type="submit" class="btn btn-success">Crea l'offerta</button>
+                            <button type="submit" class="btn btn-success" th:unless="${edit}">Crea
+                                l'offerta</button>
+
+                            <button type="submit" class="btn btn-success" th:if="${edit}">Aggiorna
+                                l'offerta</button>
 
                             <button type="reset" class="btn btn-warning">Resetta il form</button>
                         </div>

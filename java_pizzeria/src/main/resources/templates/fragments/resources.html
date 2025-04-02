@@ -36,8 +36,8 @@
 
         <div class="mb-3">
             <label for="descrizione">Descrizione</label>
-            <input type="text" placeholder="Inserisci la descrizione della pizza (ingredienti)" id="descrizione"
-                class="form-control" th:field="*{descrizione}" th:errorClass="is-invalid">
+            <input type="text" placeholder="Inserisci la descrizione della pizza" id="descrizione" class="form-control"
+                th:field="*{descrizione}" th:errorClass="is-invalid">
             <div class="invalid-feedback" th:if="${#fields.hasErrors('descrizione')}">
                 <ul class="list-unstyled">
                     <li th:each="error : ${#fields.errors('descrizione')}" th:text="${error}"></li>

@@ -27,7 +27,7 @@ public class OffertaSpecialeController {
 
         // verifico che la validazione sia avvenuta correttamente
         if (bindingResult.hasErrors()) {
-            return "offerte_speciali/create";
+            return "offerte_speciali/create-or-edit";
         }
 
         repository.save(offertaSpecialeForm);
@@ -40,7 +40,7 @@ public class OffertaSpecialeController {
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("offertaSpeciale", repository.findById(id).get());
         model.addAttribute("edit", true);
-        return "/offerte_speciali/create";
+        return "/offerte_speciali/create-or-edit";
     }
 
     // metodo che effettua l'update con validazione
@@ -49,7 +49,7 @@ public class OffertaSpecialeController {
             BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "/offerte_speciali/create";
+            return "/offerte_speciali/create-or-edit";
         }
 
         repository.save(offertaSpecialeForm);
