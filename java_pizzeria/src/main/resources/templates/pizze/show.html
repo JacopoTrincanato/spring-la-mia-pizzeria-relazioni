@@ -37,9 +37,9 @@
                 </thead>
 
                 <tbody>
-                    <tr>
+                    <tr th:each="ingrediente : *{ingredienti}">
 
-                        <td th:each="ingrediente : *{ingredienti}">[[*{nome}]]</td>
+                        <td>[[${ingrediente.nome}]]</td>
 
                     </tr>
                 </tbody>

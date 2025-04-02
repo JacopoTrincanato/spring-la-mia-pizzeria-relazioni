@@ -64,7 +64,7 @@ public class PizzaController {
 
         // prendo tutti gli ingredienti
         model.addAttribute("ingredienti", ingredientiRepository.findAll());
-        return "pizze/create";
+        return "pizze/create-or-edit";
     }
 
     // creo un metodo per aggiungere una pizza
@@ -76,7 +76,7 @@ public class PizzaController {
 
             // prendo tutti gli ingredienti
             model.addAttribute("ingredienti", ingredientiRepository.findAll());
-            return "pizze/create";
+            return "pizze/create-or-edit";
         }
 
         // salvo il dato
@@ -91,7 +91,7 @@ public class PizzaController {
         // prendo tutti gli ingredienti
         model.addAttribute("ingredienti", ingredientiRepository.findAll());
         model.addAttribute("pizza", repository.findById(id).get());
-        return "pizze/edit";
+        return "pizze/create-or-edit";
     }
 
     // creo update per modificare gli elementi della card
@@ -102,7 +102,7 @@ public class PizzaController {
         if (bindingResult.hasErrors()) {
             // prendo tutti gli ingredienti
             model.addAttribute("ingredienti", ingredientiRepository.findAll());
-            return "pizze/edit";
+            return "pizze/create-or-edit";
         }
 
         // aggiorno il dato
