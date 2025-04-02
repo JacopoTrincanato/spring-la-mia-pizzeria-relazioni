@@ -14,80 +14,8 @@
 <body>
 
     <!--Creo il fragment per i bottoni della card-->
-    <a th:fragment="cardButtons(link, title)" th:href="${link}" th:text="${title}" class="btn btn-primary mb-3">
+    <a th:fragment="cardButtons(link, title)" th:href="${link}" th:text="${title}" class="btn btn-primary">
     </a>
-
-    <!--Creo il fragment per il form-->
-    <form th:fragment="form(action, method, azioneSubmit)" th:action="${action}" method="${method}"
-        class="border border-black rounded p-4">
-
-        <!--Creo i vari input-->
-        <div class="mb-3">
-            <label for="nome">Nome</label>
-            <input type="text" placeholder="Inserisci il nome della pizza" minlength="5" maxlength="20" id="nome"
-                class="form-control" th:field="*{nome}" th:errorClass="is-invalid">
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('nome')}">
-                <ul class="list-unstyled">
-                    <li th:each="error : ${#fields.errors('nome')}" th:text="${error}"></li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="descrizione">Descrizione</label>
-            <input type="text" placeholder="Inserisci la descrizione della pizza" id="descrizione" class="form-control"
-                th:field="*{descrizione}" th:errorClass="is-invalid">
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('descrizione')}">
-                <ul class="list-unstyled">
-                    <li th:each="error : ${#fields.errors('descrizione')}" th:text="${error}"></li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="urlFoto">Immagine</label>
-            <input type="text" placeholder="Inserisci l'immagine della pizza" id="urlFoto" class="form-control"
-                th:field="*{urlFoto}" th:errorClass="is-invalid">
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('urlFoto')}">
-                <ul class="list-unstyled">
-                    <li th:each="error : ${#fields.errors('urlFoto')}" th:text="${error}"></li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="prezzo">Prezzo</label>
-            <input type="text" placeholder="Inserisci il prezzo della pizza" id="prezzo" class="form-control" min="0"
-                th:field="*{prezzo}" th:errorClass="is-invalid">
-            <div class="invalid-feedback" th:if="${#fields.hasErrors('prezzo')}">
-                <ul class="list-unstyled">
-                    <li th:each="error : ${#fields.errors('prezzo')}" th:text="${error}"></li>
-                </ul>
-
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <div class="ingredienti form-check" th:each="ingrediente : ${ingredienti}">
-                <input type="checkbox" th:id="|ingrediente-${ingrediente.id}|" th:field="*{ingredienti}"
-                    th:value="${ingrediente.id}">
-                <label th:for="|ingrediente-${ingrediente.id}|" class="form-check-label"
-                    th:text="${ingrediente.nome}"></label>
-            </div>
-        </div>
-
-
-        <div class="mb-3 d-flex justify-content-around">
-            <button type="submit" class="btn btn-success">[[${azioneSubmit}]]</button>
-
-            <button type="reset" class="btn btn-warning">Resetta il form</button>
-        </div>
-
-    </form>
-
 
     <!--Creo il fragment per gli script-->
     <div th:fragment="scripts">

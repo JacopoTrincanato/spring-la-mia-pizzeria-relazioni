@@ -91,6 +91,7 @@ public class PizzaController {
         // prendo tutti gli ingredienti
         model.addAttribute("ingredienti", ingredientiRepository.findAll());
         model.addAttribute("pizza", repository.findById(id).get());
+        model.addAttribute("edit", true);
         return "pizze/create-or-edit";
     }
 

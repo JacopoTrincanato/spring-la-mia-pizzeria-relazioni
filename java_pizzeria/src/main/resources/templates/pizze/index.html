@@ -25,7 +25,7 @@
                         <p>Ingredienti: [[*{descrizione}]]</p>
                         <p>Prezzo: [[*{prezzo}]] euro</p>
 
-                        <div class="d-flex justify-content-between flex-wrap">
+                        <div class="d-flex justify-content-between">
 
                             <!--Inserisco i fragment per i bottoni della card-->
                             <div th:replace="~{fragments/resources :: cardButtons('/pizze/' + *{id}, 'Leggi di più')}">
@@ -38,12 +38,8 @@
                                 th:replace="~{fragments/resources :: cardButtons('/pizze/' + *{id} + '/offerte', 'Offerte')}">
                             </div>
 
-                            <div
-                                th:replace="~{fragments/resources :: cardButtons('/pizze/' + *{id} + '/ingredienti', 'Ingredienti')}">
-                            </div>
-
                             <!-- Bottone che triggera la modale -->
-                            <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 th:data-bs-target="'#modal-' + *{id}">
                                 x
                             </button>

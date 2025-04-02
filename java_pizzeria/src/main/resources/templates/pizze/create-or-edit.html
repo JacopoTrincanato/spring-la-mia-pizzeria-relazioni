@@ -79,10 +79,10 @@
                         </div>
 
                         <div class="mb-3 d-flex justify-content-around">
-                            <button type="submit" class="btn btn-success" th:unless="${edit}">Crea
+                            <button type="submit" class="btn btn-success" th:if="${edit}">Aggiorna
                                 la pizza</button>
 
-                            <button type="submit" class="btn btn-success" th:if="${edit}">Aggiorna
+                            <button type="submit" class="btn btn-success" th:unless="${edit}">Crea
                                 la pizza</button>
 
                             <button type="reset" class="btn btn-warning">Resetta il form</button>
